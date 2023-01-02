@@ -1,19 +1,14 @@
 ﻿using System.Globalization;
-using System.Net.Http.Headers;
-using System.Runtime.CompilerServices;
-using System.Media;
 
 namespace Byte_Bank_1_0
 {
     internal class Sistema
     {
         // lista de clientes do banco
-        public static List<Cliente> clientes;
-
-
+        public static List<Cliente>? clientes;
 
         // função para pegar a lista de usuários do arquivo txt
-        internal static void criarBancoDeDados()
+        internal static void CriarBancoDeDados()
         {
             // lista de clientes do banco
             clientes = new List<Cliente>();
@@ -44,19 +39,19 @@ namespace Byte_Bank_1_0
         }
 
         // função para atualizar a lista de usuarios no arquivo txt
-        internal static void atualizarListaDeUsuarios()
+        internal static void AtualizarListaDeUsuarios()
         {
             File.WriteAllText(@"..\..\..\Dados\Dados.txt", String.Empty);
             StreamWriter sw = new StreamWriter(@"..\..\..\Dados\Dados.txt");
-       
-            foreach(Cliente cliente in clientes)
+
+            foreach (Cliente cliente in clientes)
             {
                 sw.WriteLine($"{cliente.Titular};{cliente.Cpf};{cliente.Senha};{cliente.Saldo}");
             }
             sw.Close();
         }
-        
-  
+
+
         // função de saque
         public static bool Saque(Cliente cliente, decimal quantia)
         {
@@ -67,7 +62,7 @@ namespace Byte_Bank_1_0
                     cliente.Saldo -= quantia;
                     Console.WriteLine($"  Saque de {quantia:C2} efetuado com sucesso!");
                     Console.Beep();
-                    atualizarListaDeUsuarios();
+                    AtualizarListaDeUsuarios();
                     return true;
                 }
                 Console.WriteLine("  Saldo insuficiente.");
@@ -88,7 +83,7 @@ namespace Byte_Bank_1_0
                 cliente.Saldo += quantia;
                 Console.WriteLine($"  {quantia:C2} depositado(s) com sucesso!");
                 Console.Beep();
-                atualizarListaDeUsuarios();
+                AtualizarListaDeUsuarios();
             }
             else
                 Console.WriteLine($"\n  Quantia ou entrada inválida.");
@@ -150,13 +145,13 @@ namespace Byte_Bank_1_0
             novoCliente.Cpf = cpf;
             novoCliente.Senha = senha;
 
-            if(novoCliente.CheckagemCliente(novoCliente))
+            if (novoCliente.CheckagemCliente(novoCliente))
             {
                 StreamWriter sw = new StreamWriter(@"..\..\..\Dados\Dados.txt");
                 sw.WriteLine($"{novoCliente.Titular};{novoCliente.Cpf};{novoCliente.Senha};{novoCliente.Saldo}");
                 sw.Close();
             }
-            
+
         }
 
         // função para remover o cliente
@@ -184,7 +179,7 @@ namespace Byte_Bank_1_0
                     clientes.Remove(cliente);
                     Console.WriteLine("  Cliente removido.");
                     Console.Beep();
-                    atualizarListaDeUsuarios();
+                    AtualizarListaDeUsuarios();
                 }
 
                 else
@@ -193,7 +188,7 @@ namespace Byte_Bank_1_0
             else
                 Console.WriteLine("  Quantidade de dígitos invalida, digite os 11 números do cpf.");
 
-            System.Threading.Thread.Sleep(2000);
+            Thread.Sleep(2000);
             Console.Clear();
 
 
@@ -219,7 +214,7 @@ namespace Byte_Bank_1_0
         // esta função tem 2 propósitos:
         // 1- passar os detalhes da conta, se passado a operacao "detalhes" como parâmetro
         // 2- para qualquer outro parâmetro ela vai chamar a função de validação do usuário no sistema
-        internal static void ManipulacaoConta(string operacao)
+        internal static void ManipulacaoConta(bool detalhes)
         {
             Console.WriteLine(Arte.INFO);
             Console.Write("  Digite o Cpf do titular: ");
@@ -232,7 +227,7 @@ namespace Byte_Bank_1_0
 
                 if (cliente != null)
                 {
-                    if (operacao == "detalhes")
+                    if (detalhes)
                     {
                         Console.WriteLine(cliente);
                         Console.Beep();
@@ -256,8 +251,8 @@ namespace Byte_Bank_1_0
                     System.Threading.Thread.Sleep(1500);
                     Console.Clear();
                 }
-                
-                }
+
+            }
             else
             {
                 Console.WriteLine("  Usuário não encontrado.");

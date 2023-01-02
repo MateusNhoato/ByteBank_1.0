@@ -1,12 +1,11 @@
-﻿using System.Diagnostics.CodeAnalysis;
-using System.Globalization;
+﻿using System.Globalization;
 
 namespace Byte_Bank_1_0
 {
     internal class Cliente
     {
         // informações do cliente
-        private string _titular; 
+        private string _titular;
         private string _cpf;
         private string _senha;
         protected internal decimal Saldo { get; internal set; }
@@ -15,10 +14,11 @@ namespace Byte_Bank_1_0
         public string Titular
         {
             get { return _titular; }
-            set {
+            set
+            {
                 value = value.Trim();
                 string[] array = value.Split(' ');
-                foreach(string s in array)
+                foreach (string s in array)
                 {
                     foreach (char c in s)
                     {
@@ -28,16 +28,16 @@ namespace Byte_Bank_1_0
                             return;
                         }
                     }
-                }   
-                if(value != null && value.Length >1 && value.Length <= 60)
+                }
+                if (value != null && value.Length > 1 && value.Length <= 60)
                 {
                     TextInfo textInfo = new CultureInfo("pt-br", false).TextInfo;
                     value = textInfo.ToTitleCase(value);
                     _titular = value;
                 }
                 else
-                    Console.WriteLine("\n Nome inválido, digite o nome corretamente.");
-                 
+                    Console.WriteLine("\n  Nome inválido, digite o nome corretamente.");
+
             }
         }
         // cpf consiste em 11 numeros exatamente, não aceitando os pontos nem / ou -
@@ -65,15 +65,16 @@ namespace Byte_Bank_1_0
         public string Senha
         {
             get { return _senha; }
-            set {
+            set
+            {
                 if (value.Contains(' '))
                 {
                     Console.WriteLine("\n  Pin com espaços em branco.");
                     return;
                 }
-                if(value.Contains(';'))
+                if (value.Contains(';'))
                 {
-                    Console.WriteLine("\n ';' é um caractere inválido.");
+                    Console.WriteLine("\n  ';' é um caractere inválido.");
                     return;
                 }
                 if (value.Trim().Length == 6)
@@ -84,21 +85,21 @@ namespace Byte_Bank_1_0
                     Console.WriteLine("\n  Pin inválido, digite 6 digitos/letras/caracteres.");
             }
         }
-  
+
         // função para ver se todos os campos foram preenchidos
         internal bool CheckagemCliente(Cliente novocliente)
         {
             Console.WriteLine(Arte.LINHA);
-            if (_cpf != null && Titular != null && _senha != null) 
+            if (_cpf != null && Titular != null && _senha != null)
             {
-                foreach(Cliente cliente in Sistema.clientes)
+                foreach (Cliente cliente in Sistema.clientes)
                 {
-                    if(cliente.Cpf == _cpf)
+                    if (cliente.Cpf == _cpf)
                     {
                         Console.WriteLine("  Cpf já cadastrado.");
                         Menu.AperteEnterContinuar();
                         return false;
-                    }    
+                    }
                 }
                 Sistema.clientes.Add(novocliente);
                 Console.WriteLine("  Usuário cadastrado com sucesso!");
@@ -111,7 +112,7 @@ namespace Byte_Bank_1_0
                 Console.WriteLine("  Dados incorretos, cliente não foi cadastrado.");
                 Menu.AperteEnterContinuar();
                 return false;
-            }            
+            }
         }
 
         public override string ToString()
