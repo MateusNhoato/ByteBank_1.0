@@ -212,8 +212,8 @@ namespace Byte_Bank_1_0
 
         }
         // esta função tem 2 propósitos:
-        // 1- passar os detalhes da conta, se passado a operacao "detalhes" como parâmetro
-        // 2- para qualquer outro parâmetro ela vai chamar a função de validação do usuário no sistema
+        // 1- passar os detalhes da conta, se passado true para o parâmetro detalhes
+        // 2- para false no parâmetro detalhes, esta função vai chamar a função de validação do usuário no sistema
         internal static void ManipulacaoConta(bool detalhes)
         {
             Console.WriteLine(Arte.INFO);
@@ -262,9 +262,6 @@ namespace Byte_Bank_1_0
         }
 
 
-
-
-
         // após o usuário já ter confirmado seu nome ou cpf na função ManipulacaoConta,
         // nesta função validamos o usuário ao pedir pelo seu PIN(senha) e checkar com o valor guardado
         public static bool ValidacaoUsuario(Cliente cliente)
@@ -284,7 +281,6 @@ namespace Byte_Bank_1_0
             System.Threading.Thread.Sleep(1000);
             Console.Clear();
             return false;
-
         }
 
         // função para ver o total de dinheiro no banco

@@ -11,7 +11,7 @@
             {
                 Console.WriteLine(Arte.LOGO);
 
-                Console.WriteLine("  1 - Inserir novo usuário");
+                Console.WriteLine("\n\n  1 - Inserir novo usuário");
                 Console.WriteLine("  2 - Deletar um usuário");
                 Console.WriteLine("  3 - Listar todas as contas registradas");
                 Console.WriteLine("  4 - Detalhes de um usuário");
@@ -42,7 +42,7 @@
                         break;
                     case "4":
                         Console.Beep();
-                        Sistema.ManipulacaoConta("detalhes");
+                        Sistema.ManipulacaoConta(true);
                         break;
                     case "5":
                         Console.Beep();
@@ -50,7 +50,7 @@
                         break;
                     case "6":
                         Console.Beep();
-                        Sistema.ManipulacaoConta("");
+                        Sistema.ManipulacaoConta(false);
                         break;
                     default:
                         EntradaInvalida();
