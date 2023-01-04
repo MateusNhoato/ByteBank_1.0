@@ -1,6 +1,8 @@
 ﻿using System.Globalization;
+using Views;
+using Controllers;
 
-namespace Byte_Bank_1_0
+namespace Entities
 {
     internal class Cliente
     {

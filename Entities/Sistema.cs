@@ -1,11 +1,15 @@
 ﻿using System.Globalization;
+using Views;
+using Controllers;
 
-namespace Byte_Bank_1_0
+namespace Entities
 {
     internal class Sistema
     {
         // lista de clientes do banco
-        public static List<Cliente>? clientes;
+        internal protected static List<Cliente>? clientes;
+        //path
+        private static string path = @"..\..\..\Repositories\Dados\Dados.txt";
 
         // função para pegar a lista de usuários do arquivo txt
         internal static void CriarBancoDeDados()
@@ -15,7 +19,7 @@ namespace Byte_Bank_1_0
 
             try
             {
-                StreamReader sr = new StreamReader(@"..\..\..\Dados\Dados.txt");
+                StreamReader sr = new StreamReader(path);
                 string line = sr.ReadLine();
                 while (line != null)
                 {
@@ -33,7 +37,7 @@ namespace Byte_Bank_1_0
             catch (FileNotFoundException e)
             {
 
-                using FileStream fs = File.Create(@"..\..\..\Dados\Dados.txt");
+                using FileStream fs = File.Create(path);
             }
 
         }
@@ -41,8 +45,8 @@ namespace Byte_Bank_1_0
         // função para atualizar a lista de usuarios no arquivo txt
         internal static void AtualizarListaDeUsuarios()
         {
-            File.WriteAllText(@"..\..\..\Dados\Dados.txt", String.Empty);
-            StreamWriter sw = new StreamWriter(@"..\..\..\Dados\Dados.txt");
+            File.WriteAllText(path, string.Empty);
+            StreamWriter sw = new StreamWriter(path);
 
             foreach (Cliente cliente in clientes)
             {
@@ -147,7 +151,7 @@ namespace Byte_Bank_1_0
 
             if (novoCliente.CheckagemCliente(novoCliente))
             {
-                StreamWriter sw = new StreamWriter(@"..\..\..\Dados\Dados.txt");
+                StreamWriter sw = new StreamWriter(path);
                 sw.WriteLine($"{novoCliente.Titular};{novoCliente.Cpf};{novoCliente.Senha};{novoCliente.Saldo}");
                 sw.Close();
             }
@@ -248,7 +252,7 @@ namespace Byte_Bank_1_0
                 else
                 {
                     Console.WriteLine("  Usuário não encontrado.");
-                    System.Threading.Thread.Sleep(1500);
+                    Thread.Sleep(1500);
                     Console.Clear();
                 }
 
@@ -256,7 +260,7 @@ namespace Byte_Bank_1_0
             else
             {
                 Console.WriteLine("  Usuário não encontrado.");
-                System.Threading.Thread.Sleep(1500);
+                Thread.Sleep(1500);
                 Console.Clear();
             }
         }
@@ -273,12 +277,12 @@ namespace Byte_Bank_1_0
             {
                 Console.WriteLine("  Acesso permitido.");
                 Console.Beep();
-                System.Threading.Thread.Sleep(1000);
+                Thread.Sleep(1000);
                 Console.Clear();
                 return true;
             }
             Console.WriteLine("  Senha inválida.");
-            System.Threading.Thread.Sleep(1000);
+            Thread.Sleep(1000);
             Console.Clear();
             return false;
         }

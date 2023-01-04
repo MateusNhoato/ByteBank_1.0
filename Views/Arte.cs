@@ -1,4 +1,4 @@
-﻿namespace Byte_Bank_1_0
+﻿namespace Views
 {
     // artes frufru que adoro 👍
     internal struct Arte

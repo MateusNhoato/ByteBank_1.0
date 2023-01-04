@@ -1,4 +1,7 @@
-﻿namespace Byte_Bank_1_0
+﻿using Views;
+using Entities;
+
+namespace Controllers
 {
     static class Menu
     {
@@ -80,7 +83,7 @@
                     case "0":
                         Console.Beep();
                         Console.Clear();
-                        Menu.ShowMenu();
+                        ShowMenu();
                         break;
 
                     case "1":
@@ -158,7 +161,7 @@
         internal static void EntradaInvalida()
         {
             Console.WriteLine("  Entrada inválida");
-            System.Threading.Thread.Sleep(1000);
+            Thread.Sleep(1000);
             Console.Clear();
         }
 
@@ -173,9 +176,9 @@
         internal static void EncerrarPrograma()
         {
             Console.WriteLine(Arte.OBRIGADO);
-            System.Threading.Thread.Sleep(1000);
+            Thread.Sleep(1000);
             Console.WriteLine(Arte.FEITOPOR);
-            System.Threading.Thread.Sleep(1000);
+            Thread.Sleep(1000);
             Console.WriteLine(Arte.NOME);
             Environment.Exit(0);
         }

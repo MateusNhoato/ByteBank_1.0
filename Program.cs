@@ -1,4 +1,7 @@
-﻿namespace Byte_Bank_1_0
+﻿using Controllers;
+using Entities;
+
+namespace Byte_Bank_1_0
 {
     class Program
     {
