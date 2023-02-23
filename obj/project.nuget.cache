@@ -1,8 +1,15 @@
 {
   "version": 2,
-  "dgSpecHash": "91H5JV8qPMxiZ4geIZ6hXU4cvATmiRlZgOWZdZ9VzmDn8REpMA3Aoi9hQ83jZwLfGeInOa3cUsXFSq6V00GyeA==",
+  "dgSpecHash": "Q772rlPtnFZZ0XGU0nqz08iGNu4OLKo9IvIilBX1ET46hgvl7PvPVmTewSXwN2JhCtghOSDoneOU6efKc3qUFg==",
   "success": true,
   "projectFilePath": "C:\\Users\\manho\\source\\repos\\Banco\\Byte_Bank_1_0.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\manho\\.nuget\\packages\\newtonsoft.json\\13.0.2\\newtonsoft.json.13.0.2.nupkg.sha512",
+    "C:\\Users\\manho\\.nuget\\packages\\refit\\6.3.2\\refit.6.3.2.nupkg.sha512",
+    "C:\\Users\\manho\\.nuget\\packages\\system.net.http.json\\6.0.0\\system.net.http.json.6.0.0.nupkg.sha512",
+    "C:\\Users\\manho\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\6.0.0\\system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512",
+    "C:\\Users\\manho\\.nuget\\packages\\system.text.encodings.web\\6.0.0\\system.text.encodings.web.6.0.0.nupkg.sha512",
+    "C:\\Users\\manho\\.nuget\\packages\\system.text.json\\6.0.0\\system.text.json.6.0.0.nupkg.sha512"
+  ],
   "logs": []
 }

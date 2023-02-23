@@ -13,3 +13,6 @@ C:\Users\manho\source\repos\Banco\obj\Debug\net6.0\refint\Byte_Bank_1_0.dll
 C:\Users\manho\source\repos\Banco\obj\Debug\net6.0\Byte_Bank_1_0.pdb
 C:\Users\manho\source\repos\Banco\obj\Debug\net6.0\Byte_Bank_1_0.genruntimeconfig.cache
 C:\Users\manho\source\repos\Banco\obj\Debug\net6.0\ref\Byte_Bank_1_0.dll
+C:\Users\manho\source\repos\Banco\bin\Debug\net6.0\Newtonsoft.Json.dll
+C:\Users\manho\source\repos\Banco\bin\Debug\net6.0\Refit.dll
+C:\Users\manho\source\repos\Banco\obj\Debug\net6.0\Byte_Bank_1_0.csproj.CopyComplete
