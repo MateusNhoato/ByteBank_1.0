@@ -2,7 +2,7 @@
 [![Versão](https://img.shields.io/badge/vers%C3%A3o-1.0.0-brightgreen.svg)](https://github.com/user/repo/releases)
 
 
-Projeto bancário desenvolvido na etapa 1 do programa Sharp Coders. Se trata de um sistema bancário feito com programação orientada a objetos e com validação dos inputs do usuário.
+Projeto bancário desenvolvido na etapa 1 do programa Sharp Coders. Se trata de um sistema bancário feito com programação orientada a objetos e com validação dos inputs do usuário. Conta também com testes unitários e consumo de API para pegar a cotação do Dólar e Euro. 
 
 ## Tecnologias
 [![Linguagem](https://img.shields.io/badge/linguagem-C%23-brightgreen.svg)](https://docs.microsoft.com/pt-br/dotnet/csharp/)
@@ -26,6 +26,8 @@ Para instalar o projeto, basta clonar o repositório:
 - Saque
 - Depósito
 - Transferência
+- Comprar Moedas Estrangeiras
+- Histórico de Operações
 
 ## Demonstração das operações:
 https://www.youtube.com/watch?v=BaZEuVMdfNU

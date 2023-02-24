@@ -253,17 +253,14 @@ namespace Byte_Bank_1_0.Services
 
         }
 
-
-        private async ValueTask<List<Moedas>> GetMoedasAsync()
+        private async Task<List<Moedas>> GetMoedasAsync()
         {
             List<Moedas> moedas = new List<Moedas>();
 
             try
             {
                 HttpClient httpCliente = new HttpClient();
-
                 string reponseString = await httpCliente.GetStringAsync("https://economia.awesomeapi.com.br/last/USD-BRL,EUR-BRL");
-
                 JObject jsonResponse = JObject.Parse(reponseString);
 
                 IEnumerable<string> nomeMoedas = jsonResponse.Properties().Select(p => p.Name);
